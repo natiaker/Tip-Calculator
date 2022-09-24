@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="toggleStyle.css">
+</head>
+<body>
+    <div class="calculator">
+        <label class="switch">
+            <input id="switch-lang" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+
+        <h1 id="heading">Tip Calculator</h1>
+        <div class="input-div">
+            <label id="bill-amount-id" for="bill-amount">Bill Amount($)</label> <br>
+            <input type="text" id="bill-amount" onkeyup = "return validateNumbers()"> <br>
+            <label id="tip-rate-id" for="tip-rate">Tip Rate(%)</label> <br>
+            <input type="text" id="tip-rate" onkeyup = "return validateNumbers()"> <br>
+            <span id="error-message" style="color: red;"></span> <br>
+            <button id="calculate-button" disabled>Calculate</button>
+            <button id="clear-button">Clear</button>
+        </div>
+        <div class="output-div">
+            <p id="tip-p">Tip: $<span id="tip"></span> <br></p>
+            <p id="total-amount-p">Total Amount: $<span id="total-amount"></span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+body {
+    background-color: #304972;
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: #d9d9d9;;
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    min-height: 42px;
+}
+
+.calculator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 40%;
+    min-height: 515px;
+    background: linear-gradient(90deg, #4a68bb 0%, #5195ae 100% );
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 15px #23232348;
+}
+
+.input-div {
+    background-color: #232323;
+    min-height: 193px;
+    margin: 0 20px;
+    padding: 30px 50px; 
+    border-radius: 10px;
+}
+
+input {
+    margin: 5px 0 15px 0;
+    width: 100%;
+    padding: 3px 0;
+    font-size: 1rem;
+}
+
+label {
+    color: #d9d9d9;
+}
+
+#calculate-button {
+    min-width: 148px;
+    max-height: 46px;
+    margin-top: 10px;
+    padding: 12px 22px;
+    color: #d9d9d9;
+    background: linear-gradient(90deg, #4a68bb 0%, #5195ae 100%);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#calculate-button:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg, #5195ae  0%,  #4a68bb 100%);
+}
+
+#clear-button {
+    min-width: 125px;
+    min-height: 35px;
+    padding: 5px 12px;
+    margin-top: 15px;
+    float: right;
+    color: #d9d9d9;
+    background-color: #232323;
+    border: 2px solid  #304972;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+#clear-button:hover {
+    cursor: pointer;
+    border: 2px solid #4a68bb;
+}
+
+.output-div {
+    background-color: #232323;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.output-div p {
+    min-width: 393px; 
+    min-height: 25px; 
+    margin: 5px 0;
+}
+
+#error-message {
+    font-size: 1rem;
+}
+
+/* mobile version */
+@media (max-width: 767px) {
+    h1 {
+        margin: 20px;
+    }
+    .calculator {
+        width: 80%;
+        /* min-height: 670px; */
+    }
+
+    .input-div {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        margin: 0;
+    }
+}
