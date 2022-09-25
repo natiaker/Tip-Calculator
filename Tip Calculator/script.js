@@ -14,24 +14,42 @@ let clearButton = document.getElementById("clear-button");
 let tipp = document.getElementById("tip-p");
 let totalAmountp = document.getElementById("total-amount-p");
 
+
+const lang = {
+    'lang-ka': {
+        heading: "ჩაის ფულის კალკულატორი",
+        billAmountId: "თანხის ოდენობა(₾)",
+        tipRateId: "ჩაის ფულის პროცენტი(%)",
+        calculateButton: "გამოთვლა",
+        clearButton: "გასუფთავება",
+        tipp: `ჩაის ფული: <span id="tip"></span>₾`,
+        totalAmountp: `ჯამური თანხა: <span id="total-amount"></span>₾`
+    },
+    'lang-en': {
+        heading: "Tip Calculator",
+        billAmountId: "Bill Amount($)",
+        tipRateId: "Tip Rate(%)",
+        calculateButton: "Calculate",
+        clearButton: "Clear",
+        tipp: `Tip: $<span id="tip">`,
+        totalAmountp: `Total Amount: $<span id="total-amount">`
+    }
+};
+
 document.getElementById("switch-lang").onclick = () => {
-    if (heading.innerHTML === "Tip Calculator") {
-        heading.innerText = "ჩაის ფულის კალკულატორი";
-        billAmountId.innerText = "თანხის ოდენობა(₾)";
-        tipRateId.innerText = "ჩაის ფულის პროცენტი(%)";
-        calculateButton.innerText = "გამოთვლა";
-        clearButton.innerText = "გასუფთავება";
-        tipp.innerHTML = `ჩაის ფული: <span id="tip"></span>₾`;
-        totalAmountp.innerHTML = `ჯამური თანხა: <span id="total-amount"></span>₾`;
+    if (heading.getAttribute("class") == "lang-ka") {
+        heading.className = "lang-en";
     } else {
-        heading.innerText = "Tip Calculator";
-        billAmountId.innerText = "Bill Amount($)";
-        tipRateId.innerText = "Tip Rate(%)";
-        calculateButton.innerText = "Calculate";
-        clearButton.innerText = "Clear";
-        tipp.innerHTML = `Tip: $<span id="tip">`;
-        totalAmountp.innerHTML = `Total Amount: $<span id="total-amount">`;
-    }    
+        heading.className = "lang-ka";
+    }
+    heading.innerText = lang[heading.className].heading;
+    billAmountId.innerText = lang[heading.className].billAmountId;
+    tipRateId.innerText = lang[heading.className].tipRateId;
+    calculateButton.innerText = lang[heading.className].calculateButton;
+    clearButton.innerText = lang[heading.className].clearButton;
+    tipp.innerHTML = lang[heading.className].tipp;
+    totalAmountp.innerHTML = lang[heading.className].totalAmountp;
+
     document.getElementById("bill-amount").value = "";
     document.getElementById("tip-rate").value = "";
     errorMessage.innerText = "";
@@ -67,7 +85,7 @@ document.getElementById("clear-button").onclick = () => {
 
 function validateNumbers() {
     if( !document.getElementById("bill-amount").value.match(format) || !document.getElementById("tip-rate").value.match(format)){
-        if (heading.innerHTML === "Tip Calculator") {  
+        if (heading.getAttribute("class") == "lang-en") {  
             errorMessage.innerHTML = "Fill in both fields. <br> You can use only positive numbers"; 
         } else {
             errorMessage.innerHTML = "შეავსეთ ორივე ველი. <br> გამოიყენეთ მხოლოდ დადებითი რიცხვები";  
